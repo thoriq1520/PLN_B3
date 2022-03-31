@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grades",
+  "info": {
+    "singularName": "grade",
+    "pluralName": "grades",
+    "displayName": "grade",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "id_grade": {
+      "type": "uid",
+      "required": true
+    },
+    "nama_grade": {
+      "type": "string",
+      "required": true
+    },
+    "pegawais": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pegawai.pegawai",
+      "mappedBy": "grade"
+    },
+    "pendaftars": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pendaftar.pendaftar",
+      "mappedBy": "grade"
+    },
+    "urutan_grade": {
+      "type": "integer"
+    },
+    "jenjangs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::jenjang.jenjang",
+      "inversedBy": "grades"
+    }
+  }
+}

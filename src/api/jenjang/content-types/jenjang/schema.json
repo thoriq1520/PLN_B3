@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jenjangs",
+  "info": {
+    "singularName": "jenjang",
+    "pluralName": "jenjangs",
+    "displayName": "jenjang",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "id_jenjang": {
+      "type": "uid",
+      "required": true
+    },
+    "nama_jenjang": {
+      "type": "string",
+      "required": true
+    },
+    "pegawais": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pegawai.pegawai",
+      "mappedBy": "jenjang"
+    },
+    "urutan_jenjang": {
+      "type": "integer",
+      "min": 1,
+      "required": true
+    },
+    "grades": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::grade.grade",
+      "inversedBy": "jenjangs"
+    }
+  }
+}

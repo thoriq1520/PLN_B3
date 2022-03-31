@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pendaftars",
+  "info": {
+    "singularName": "pendaftar",
+    "pluralName": "pendaftars",
+    "displayName": "pendaftar",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "id_pendaftar": {
+      "type": "uid",
+      "required": true
+    },
+    "tanggal_pendaftaran": {
+      "required": false,
+      "type": "date"
+    },
+    "PPT": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "CV": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "pegawai": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pegawai.pegawai",
+      "inversedBy": "pendaftar"
+    },
+    "grade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::grade.grade",
+      "inversedBy": "pendaftars"
+    },
+    "penguji": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::penguji.penguji",
+      "inversedBy": "pendaftars"
+    },
+    "jenis_fit_n_propper": {
+      "type": "enumeration",
+      "enum": [
+        "Reguler",
+        "Non-reguler"
+      ]
+    }
+  }
+}

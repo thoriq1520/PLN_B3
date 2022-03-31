@@ -1,0 +1,125 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pegawais",
+  "info": {
+    "singularName": "pegawai",
+    "pluralName": "pegawais",
+    "displayName": "pegawai",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nip": {
+      "type": "uid",
+      "required": true
+    },
+    "nama": {
+      "type": "string",
+      "required": true
+    },
+    "tempat_lahir": {
+      "type": "string",
+      "required": true
+    },
+    "agama": {
+      "type": "string",
+      "required": true
+    },
+    "no_hp": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "jenis_kelamin": {
+      "type": "enumeration",
+      "enum": [
+        "Pria",
+        "Wanita"
+      ],
+      "required": true
+    },
+    "tanggal_lahir": {
+      "required": true,
+      "type": "date"
+    },
+    "bidang": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bidang.bidang",
+      "inversedBy": "pegawais"
+    },
+    "direktorat": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::direktorat.direktorat",
+      "inversedBy": "pegawais"
+    },
+    "divisi": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::divisi.divisi",
+      "inversedBy": "pegawais"
+    },
+    "penguji": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::penguji.penguji",
+      "inversedBy": "pegawai"
+    },
+    "jenjang": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::jenjang.jenjang",
+      "inversedBy": "pegawais"
+    },
+    "unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::unit.unit",
+      "inversedBy": "pegawais"
+    },
+    "subbidang": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subbidang.subbidang",
+      "inversedBy": "pegawais"
+    },
+    "grade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::grade.grade",
+      "inversedBy": "pegawais"
+    },
+    "jabatan": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::jabatan.jabatan",
+      "mappedBy": "pegawai"
+    },
+    "pendidikan": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pendidikan.pendidikan",
+      "inversedBy": "pegawais"
+    },
+    "pendaftar": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pendaftar.pendaftar",
+      "mappedBy": "pegawai"
+    },
+    "foto": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

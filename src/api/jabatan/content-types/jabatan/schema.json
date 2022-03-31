@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jabatans",
+  "info": {
+    "singularName": "jabatan",
+    "pluralName": "jabatans",
+    "displayName": "jabatan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "id_jabatan": {
+      "type": "uid",
+      "required": true
+    },
+    "nama_jabatan": {
+      "type": "string",
+      "required": true
+    },
+    "bidang": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bidang.bidang",
+      "inversedBy": "jabatans"
+    },
+    "direktorat": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::direktorat.direktorat",
+      "inversedBy": "jabatans"
+    },
+    "divisi": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::divisi.divisi",
+      "inversedBy": "jabatans"
+    },
+    "pegawai": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pegawai.pegawai",
+      "inversedBy": "jabatan"
+    },
+    "unit": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::unit.unit",
+      "inversedBy": "jabatan"
+    },
+    "subbidang": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subbidang.subbidang",
+      "inversedBy": "jabatans"
+    }
+  }
+}
